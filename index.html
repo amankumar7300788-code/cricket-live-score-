@@ -8,33 +8,39 @@
 
 body{
 background:#0b1220;
-color:white;
-font-family:Arial;
 margin:0;
+font-family:Arial;
+color:white;
 text-align:center;
 }
 
 header{
 background:linear-gradient(90deg,#1e3c72,#2a5298);
-padding:15px;
+padding:18px;
 font-size:26px;
 font-weight:bold;
 }
 
 .container{
-margin-top:20px;
 display:flex;
 justify-content:center;
+margin-top:20px;
 }
 
-.widget-box{
+.widget{
 background:white;
-padding:10px;
 border-radius:10px;
-width:420px;
+padding:10px;
+}
+
+footer{
+margin-top:20px;
+font-size:14px;
+color:#aaa;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -45,13 +51,18 @@ width:420px;
 
 <div class="container">
 
-<div class="widget-box">
+<div class="widget">
 
-<script src="https://cdorgapi.b-cdn.net/widgets/matchlist.js"></script>
+<!-- FINAL WORKING WIDGET -->
+<script src="https://cdorgapi.b-cdn.net/widgets/matchcenter.js"></script>
 
 </div>
 
 </div>
+
+<footer>
+Live scores auto update | Powered by Aman Kumar
+</footer>
 
 </body>
 </html>
