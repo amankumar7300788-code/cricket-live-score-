@@ -1,8 +1,6 @@
 const API_KEY = "1592f85f-8617-4497-9fe3-16a84e459413";
 
-async function loadScore(){
-
-try{
+async function loadMatches(){
 
 let response = await fetch(
 `https://api.cricapi.com/v1/currentMatches?apikey=${API_KEY}&offset=0`
@@ -10,64 +8,63 @@ let response = await fetch(
 
 let data = await response.json();
 
-if(data.status === "success"){
+let liveHTML = "";
+let upcomingHTML = "";
+let recentHTML = "";
 
-let liveMatch = data.data.find(m => m.matchStarted);
+data.data.forEach(match => {
 
-if(liveMatch){
+let score = "Score not available";
 
-document.getElementById("match").innerText =
-liveMatch.name;
+if(match.score.length > 0){
 
-document.getElementById("status").innerText =
-liveMatch.status;
+score =
+match.score[0].r + "/" +
+match.score[0].w + " (" +
+match.score[0].o + ")";
 
+}
 
-// TEAM NAMES
+let html = `
+<div class="matchCard">
 
-let teams = liveMatch.teams;
+<div class="matchTitle">
+${match.name}
+</div>
 
-document.getElementById("team1").innerText =
-teams[0];
+<div class="matchScore">
+${score}
+</div>
 
-document.getElementById("team2").innerText =
-teams[1];
+<div>
+${match.status}
+</div>
 
+</div>
+`;
 
-// SCORE
+if(match.matchStarted && !match.matchEnded){
 
-if(liveMatch.score.length > 0){
+liveHTML += html;
 
-let score = liveMatch.score[0];
+}else if(!match.matchStarted){
 
-document.getElementById("score").innerText =
-score.r + "/" + score.w;
+upcomingHTML += html;
 
 }else{
 
-document.getElementById("score").innerText =
-"Score updating...";
+recentHTML += html;
 
 }
 
-}else{
+});
 
-document.getElementById("status").innerText =
-"No live match currently";
-
-}
-
-}
-
-}catch{
-
-document.getElementById("status").innerText =
-"API connection error";
+document.getElementById("liveMatches").innerHTML = liveHTML;
+document.getElementById("upcomingMatches").innerHTML = upcomingHTML;
+document.getElementById("recentMatches").innerHTML = recentHTML;
 
 }
 
-}
+loadMatches();
 
-loadScore();
-
-setInterval(loadScore,5000);
+setInterval(loadMatches,5000);
