@@ -2,53 +2,114 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Live Cricket Score</title>
+<title>IND vs SA Live Score</title>
 
 <style>
 
-body {
-margin: 0;
-background: #0b0f1a;
-font-family: Arial;
-color: white;
+body{
+margin:0;
+font-family:Arial;
+background:url('https://i.imgur.com/8Kh9FZB.jpg');
+background-size:cover;
+color:white;
 }
 
-.header {
-background: linear-gradient(90deg,#0d47a1,#b71c1c);
-padding: 15px;
-font-size: 32px;
-text-align: center;
-font-weight: bold;
+.header{
+
+background:linear-gradient(90deg,#0d47a1,#004ba0,#1b5e20);
+
+padding:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+font-size:32px;
+
+font-weight:bold;
+
 }
 
-.live {
-color: red;
-font-size: 20px;
-margin-left: 10px;
+.team{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
 }
 
-.container {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 10px;
+.team img{
+
+width:60px;
+
 }
 
-iframe {
-width: 100%;
-height: 600px;
-border: none;
-background: black;
+.live{
+
+color:red;
+
+animation:blink 1s infinite;
+
+font-size:22px;
+
 }
 
-.footer {
-position: fixed;
-bottom: 0;
-width: 100%;
-background: black;
-text-align: center;
-padding: 10px;
-font-size: 18px;
+@keyframes blink{
+
+0%{opacity:1;}
+
+50%{opacity:0;}
+
+100%{opacity:1;}
+
+}
+
+.scorebar{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:320px;
+
+background:rgba(0,0,0,0.85);
+
+border-top:4px solid red;
+
+}
+
+iframe{
+
+width:100%;
+
+height:100%;
+
+border:none;
+
+}
+
+.footer{
+
+position:absolute;
+
+bottom:320px;
+
+width:100%;
+
+text-align:center;
+
+font-size:22px;
+
+background:rgba(0,0,0,0.6);
+
+padding:5px;
+
 }
 
 </style>
@@ -58,18 +119,43 @@ font-size: 18px;
 <body>
 
 <div class="header">
-🏏 T20 WORLD CUP LIVE SCORE <span class="live">● LIVE</span>
+
+<div class="team">
+
+<img src="https://flagcdn.com/w80/in.png">
+
+INDIA
+
 </div>
 
-<div class="container">
+<div class="live">
+
+● LIVE
+
+</div>
+
+<div class="team">
+
+SOUTH AFRICA
+
+<img src="https://flagcdn.com/w80/za.png">
+
+</div>
+
+</div>
+
+<div class="footer">
+
+T20 WORLD CUP 2026 – LIVE SCORE
+
+</div>
+
+<div class="scorebar">
 
 <iframe src="https://widget.crictimes.org/"></iframe>
 
 </div>
 
-<div class="footer">
-Live Commentary by Aman Kumar
-</div>
-
 </body>
+
 </html>
