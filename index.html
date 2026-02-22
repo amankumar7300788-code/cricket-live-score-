@@ -37,16 +37,22 @@ background:#1c2433;
 padding:12px;
 margin-bottom:10px;
 border-radius:8px;
+cursor:pointer;
+}
+
+.match:hover{
+background:#26344d;
 }
 
 .name{
-font-size:17px;
+font-size:16px;
 font-weight:bold;
 }
 
 .status{
 color:#aaa;
-margin-top:5px;
+font-size:14px;
+margin-top:4px;
 }
 
 </style>
@@ -59,43 +65,40 @@ margin-top:5px;
 🏏 LIVE CRICKET SCORES
 </header>
 
-
 <div class="section">
 <div class="title">LIVE MATCHES</div>
-<div id="live">Loading...</div>
+<div id="live">Loading live matches...</div>
 </div>
-
 
 <div class="section">
 <div class="title">RECENT MATCHES</div>
-<div id="recent">Loading...</div>
+<div id="recent">Loading recent matches...</div>
 </div>
-
 
 <script>
 
 const API_KEY="1592f85f-8617-4497-9fe3-16a84e459413";
 
 
-function loadLive(){
-
+// LIVE MATCHES
 fetch(`https://api.cricapi.com/v1/currentMatches?apikey=${API_KEY}&offset=0`)
 .then(res=>res.json())
-.then(data=>{
+.then(json=>{
 
 let html="";
 
-if(data.data.length==0)
-html="No live match found";
+if(!json.data || json.data.length===0){
 
-else{
+html="No live matches currently";
 
-data.data.forEach(match=>{
+}else{
+
+json.data.forEach(match=>{
 
 html+=`
 <div class="match">
-<div class="name">${match.name}</div>
-<div class="status">${match.status}</div>
+<div class="name">${match.name || "Match name unavailable"}</div>
+<div class="status">${match.status || ""}</div>
 </div>
 `;
 
@@ -105,39 +108,46 @@ html+=`
 
 document.getElementById("live").innerHTML=html;
 
+})
+.catch(err=>{
+document.getElementById("live").innerHTML="Error loading live matches";
 });
 
-}
 
 
-function loadRecent(){
-
+// RECENT MATCHES
 fetch(`https://api.cricapi.com/v1/matches?apikey=${API_KEY}&offset=0`)
 .then(res=>res.json())
-.then(data=>{
+.then(json=>{
 
 let html="";
 
-data.data.slice(0,10).forEach(match=>{
+if(!json.data){
+
+html="No recent matches found";
+
+}else{
+
+json.data.slice(0,20).forEach(match=>{
 
 html+=`
 <div class="match">
-<div class="name">${match.name}</div>
-<div class="status">${match.status}</div>
+<div class="name">${match.name || "Match unavailable"}</div>
+<div class="status">${match.status || match.date || ""}</div>
 </div>
 `;
 
 });
 
-document.getElementById("recent").innerHTML=html;
-
-});
-
 }
 
+document.getElementById("recent").innerHTML=html;
 
-loadLive();
-loadRecent();
+})
+.catch(err=>{
+document.getElementById("recent").innerHTML="Error loading recent matches";
+});
+
 
 </script>
 
