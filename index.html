@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Live Cricket Scores</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
@@ -13,30 +11,32 @@ background:#0b1220;
 color:white;
 font-family:Arial;
 margin:0;
+text-align:center;
 }
 
 header{
-background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+background:linear-gradient(90deg,#1e3c72,#2a5298);
 padding:15px;
-text-align:center;
-font-size:28px;
+font-size:26px;
 font-weight:bold;
 }
 
 .container{
-padding:20px;
+margin-top:20px;
+display:flex;
+justify-content:center;
 }
 
 .widget-box{
-background:#111;
-padding:15px;
+background:white;
+padding:10px;
 border-radius:10px;
-box-shadow:0 0 15px rgba(0,255,255,0.3);
+width:420px;
 }
 
 </style>
-
 </head>
+
 <body>
 
 <header>
@@ -47,17 +47,7 @@ box-shadow:0 0 15px rgba(0,255,255,0.3);
 
 <div class="widget-box">
 
-<!-- LIVE MATCHES WIDGET -->
-<script src="https://cdorgapi.b-cdn.net/widgets/vmatchlist.js"></script>
-
-</div>
-
-<br><br>
-
-<div class="widget-box">
-
-<!-- SCROLLING LIVE SCORE WIDGET -->
-<script src="https://cdorgapi.b-cdn.net/widgets/scorecard.js"></script>
+<script src="https://cdorgapi.b-cdn.net/widgets/matchlist.js"></script>
 
 </div>
 
