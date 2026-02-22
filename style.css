@@ -1,0 +1,88 @@
+body{
+margin:0;
+background:#0b0f1a;
+font-family:Arial, sans-serif;
+color:white;
+}
+
+/* TOP BAR */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:linear-gradient(90deg,#1e3c72,#2a5298);
+padding:15px 30px;
+font-size:24px;
+font-weight:bold;
+}
+
+.team{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.team img{
+width:50px;
+height:35px;
+}
+
+.live{
+color:red;
+font-weight:bold;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0;}
+100%{opacity:1;}
+}
+
+/* SCORE AREA */
+
+.container{
+text-align:center;
+margin-top:60px;
+}
+
+.score{
+font-size:100px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.status{
+font-size:28px;
+margin-top:10px;
+color:#00ffcc;
+}
+
+/* PLAYER BOX */
+
+.players{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:30px;
+}
+
+.box{
+background:#16213e;
+padding:15px 25px;
+border-radius:10px;
+font-size:20px;
+}
+
+/* FOOTER */
+
+.footer{
+position:absolute;
+bottom:0;
+width:100%;
+background:#111;
+text-align:center;
+padding:10px;
+font-size:18px;
+}
