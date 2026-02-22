@@ -115,3 +115,44 @@ font-size:22px;
 color:#00ffcc;
 
 }
+body{
+margin:0;
+font-family:Arial;
+background:#0b0f1a;
+color:white;
+}
+
+.header{
+background:#1e3c72;
+padding:15px;
+font-size:22px;
+text-align:center;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+.matchCard{
+background:#16213e;
+padding:15px;
+margin:10px 0;
+border-radius:8px;
+cursor:pointer;
+}
+
+.matchCard:hover{
+background:#1f2c4d;
+}
+
+.matchTitle{
+font-weight:bold;
+font-size:18px;
+}
+
+.bigScore{
+font-size:60px;
+font-weight:bold;
+margin:20px 0;
+}
