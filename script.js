@@ -10,45 +10,64 @@ let response = await fetch(
 
 let data = await response.json();
 
-if(data.status === "success" && data.data.length > 0){
+if(data.status === "success"){
 
-let liveMatch = data.data.find(match => match.matchStarted === true);
+let liveMatch = data.data.find(m => m.matchStarted);
 
 if(liveMatch){
 
-document.getElementById("match").innerText = liveMatch.name;
+document.getElementById("match").innerText =
+liveMatch.name;
 
-document.getElementById("status").innerText = liveMatch.status;
+document.getElementById("status").innerText =
+liveMatch.status;
 
-if(liveMatch.score && liveMatch.score.length > 0){
 
-let teamScore = liveMatch.score[0];
+// TEAM NAMES
+
+let teams = liveMatch.teams;
+
+document.getElementById("team1").innerText =
+teams[0];
+
+document.getElementById("team2").innerText =
+teams[1];
+
+
+// SCORE
+
+if(liveMatch.score.length > 0){
+
+let score = liveMatch.score[0];
 
 document.getElementById("score").innerText =
-teamScore.r + "/" + teamScore.w;
+score.r + "/" + score.w;
 
 }else{
 
-document.getElementById("score").innerText = "Score Loading...";
+document.getElementById("score").innerText =
+"Score updating...";
+
 }
 
 }else{
 
-document.getElementById("status").innerText = "No live match found";
+document.getElementById("status").innerText =
+"No live match currently";
+
 }
 
-}else{
-
-document.getElementById("status").innerText = "API Error";
 }
 
-}catch(error){
+}catch{
 
-document.getElementById("status").innerText = "Connection Error";
+document.getElementById("status").innerText =
+"API connection error";
 
 }
 
 }
 
 loadScore();
-setInterval(loadScore, 5000);
+
+setInterval(loadScore,5000);
