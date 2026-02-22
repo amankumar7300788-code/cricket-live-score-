@@ -1,158 +1,84 @@
 body{
-margin:0;
+
 background:#0b0f1a;
-font-family:Arial, sans-serif;
+
 color:white;
-}
 
-/* TOP BAR */
-
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:linear-gradient(90deg,#1e3c72,#2a5298);
-padding:15px 30px;
-font-size:24px;
-font-weight:bold;
-}
-
-.team{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.team img{
-width:50px;
-height:35px;
-}
-
-.live{
-color:red;
-font-weight:bold;
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-0%{opacity:1;}
-50%{opacity:0;}
-100%{opacity:1;}
-}
-
-/* SCORE AREA */
-
-.container{
-text-align:center;
-margin-top:60px;
-}
-
-.score{
-font-size:100px;
-font-weight:bold;
-transition:0.3s;
-}
-
-.status{
-font-size:28px;
-margin-top:10px;
-color:#00ffcc;
-}
-
-/* PLAYER BOX */
-
-.players{
-display:flex;
-justify-content:center;
-gap:40px;
-margin-top:30px;
-}
-
-.box{
-background:#16213e;
-padding:15px 25px;
-border-radius:10px;
-font-size:20px;
-}
-
-/* FOOTER */
-
-.footer{
-position:absolute;
-bottom:0;
-width:100%;
-background:#111;
-text-align:center;
-padding:10px;
-font-size:18px;
-}
-.matchCard{
-
-background:#16213e;
-
-padding:15px;
-
-margin:10px;
-
-border-radius:10px;
-
-font-size:18px;
-
-}
-
-.matchTitle{
-
-font-weight:bold;
-
-font-size:20px;
-
-}
-
-.matchScore{
-
-font-size:22px;
-
-color:#00ffcc;
-
-}
-body{
-margin:0;
 font-family:Arial;
-background:#0b0f1a;
-color:white;
+
+margin:0;
+
 }
+
 
 .header{
+
 background:#1e3c72;
-padding:15px;
-font-size:22px;
+
+padding:20px;
+
 text-align:center;
+
+font-size:24px;
+
 font-weight:bold;
+
 }
+
 
 .container{
+
 padding:20px;
+
 }
 
-.matchCard{
+
+.card{
+
 background:#16213e;
+
 padding:15px;
+
 margin:10px 0;
-border-radius:8px;
+
+border-radius:10px;
+
 cursor:pointer;
+
+transition:0.3s;
+
 }
 
-.matchCard:hover{
-background:#1f2c4d;
+
+.card:hover{
+
+background:#1f4068;
+
 }
 
-.matchTitle{
-font-weight:bold;
+
+.title{
+
 font-size:18px;
+
+font-weight:bold;
+
 }
 
-.bigScore{
-font-size:60px;
-font-weight:bold;
-margin:20px 0;
+
+.score{
+
+font-size:28px;
+
+color:#00ffcc;
+
+margin:5px 0;
+
+}
+
+
+.status{
+
+color:#ccc;
+
 }
