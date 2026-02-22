@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Match Details</title>
-<link rel="stylesheet" href="style.css">
+<title>Live Match Scorecard</title>
+
+<style>
+
+body{
+background:#0b1220;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+header{
+background:linear-gradient(90deg,#1e3c72,#2a5298);
+padding:15px;
+font-size:24px;
+}
+
+.widget-box{
+margin-top:20px;
+background:white;
+display:inline-block;
+padding:10px;
+border-radius:10px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<div class="header">
-Match Details
-</div>
+<header>
+Full Live Scorecard
+</header>
 
-<div class="container">
+<div class="widget-box">
 
-<h2 id="matchName">Loading...</h2>
-
-<div class="bigScore" id="score">0/0</div>
-
-<div id="status"></div>
-
-<h3>Scorecard</h3>
-
-<div id="scorecard"></div>
+<script src="https://cdorgapi.b-cdn.net/widgets/matchscorecard.js"></script>
 
 </div>
-
-<script src="match.js"></script>
 
 </body>
+
 </html>
